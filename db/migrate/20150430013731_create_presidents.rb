@@ -1,12 +1,11 @@
 class CreatePresidents < ActiveRecord::Migration
   def up
     create_table :presidents do |t|
-      t.string "first_name"
-      t.string "last_name"
-      t.string "email"
+      t.integer "nominee_id"
 
       t.timestamps null: false
     end
+    add_index("presidents","nominee_id")
   end
 
   def down
