@@ -1,2 +1,64 @@
-<h1>Nominees#new</h1>
-<p>Find me in app/views/nominees/new.html.erb</p>
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="nominees new">
+  <h2>Create Nominee</h2>
+
+  <%= form_for(:nominee, :url => {:action => 'create'}) do |f| %>
+
+    <table summary="Nominee form fields">
+      <tr>
+        <th>First Name</th>
+        <td><%= f.text_field(:first_name) %></td>
+      </tr>
+      <tr>
+        <th>Last Name</th>
+        <td><%= f.text_field(:last_name) %></td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td><%= f.text_field(:email) %></td>
+      </tr>
+      <tr>
+        <th>Chapman ID</th>
+        <td><%= f.text_field(:chapman_id) %></td>
+      </tr>
+      <tr>
+        <th>President</th>
+        <td><%= f.check_box(:president_candidate) %></td>
+      </tr>
+      <tr>
+        <th>Vice President</th>
+        <td><%= f.check_box(:vp_candidate) %></td>
+      </tr>
+      <tr>
+        <th>Secretary</th>
+        <td><%= f.check_box(:secretary_candidate) %></td>
+      </tr>
+      <tr>
+        <th>Treasurer</th>
+        <td><%= f.check_box(:treasurer_candidate) %></td>
+      </tr>
+      <tr>
+        <th>Marketing</th>
+        <td><%= f.check_box(:marketing_candidate) %></td>
+      </tr>
+      <tr>
+        <th>Lū'au Co-Chair</th>
+        <td><%= f.check_box(:luau_candidate) %></td>
+      </tr>
+      <tr>
+        <th>Fundraising</th>
+        <td><%= f.check_box(:fundraising_candidate) %></td>
+      </tr>
+      <tr>
+        <th>Community Service</th>
+        <td><%= f.check_box(:community_candidate) %></td>
+      </tr>
+    </table>
+
+    <div class="form-buttons">
+      <%= submit_tag("Create Nominee") %>
+    </div>
+
+  <% end %>
+</div>

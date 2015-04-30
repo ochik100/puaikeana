@@ -1,2 +1,22 @@
-<h1>Nominees#show</h1>
-<p>Find me in app/views/nominees/show.html.erb</p>
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="nominees show">
+  <h2>Show Nominee</h2>
+
+  <table summary="Nominee detail view">
+
+  	<tr>
+      <th>Email</th>
+      <td><%= @nominee.email %></td>
+    </tr>
+    <tr>
+      <th>Created</th>
+      <td><%= @nominee.created_at %></td>
+    </tr>
+    <tr>
+      <th>Updated</th>
+      <td><%= @nominee.updated_at %></td>
+    </tr>
+  </table>
+
+</div>
