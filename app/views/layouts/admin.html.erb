@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Simple CMS | <%= @page_title || "Admin" %></title>
+    <title>Nominees | <%= @page_title || "Admin" %></title>
+    <%= stylesheet_link_tag('application', :media => 'all') %>
   </head>
   <body>
     <div id="header">
-      <h1>Simple CMS Admin</h1>
+      <h1>Pua'ikeana Executive Board</h1>
     </div>
     <div id="main">
       <% if !flash[:notice].blank? %>

@@ -4,7 +4,6 @@ class CreateNominees < ActiveRecord::Migration
       t.string "first_name"
       t.string "last_name"
       t.string "email"
-      t.string "chapman_id"
       t.boolean "president_candidate"
       t.boolean "vp_candidate"
       t.boolean "secretary_candidate"

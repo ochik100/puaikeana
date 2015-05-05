@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 20150430015129) do
     t.string   "first_name",            limit: 255
     t.string   "last_name",             limit: 255
     t.string   "email",                 limit: 255
-    t.string   "chapman_id",            limit: 255
     t.boolean  "president_candidate",   limit: 1
     t.boolean  "vp_candidate",          limit: 1
     t.boolean  "secretary_candidate",   limit: 1

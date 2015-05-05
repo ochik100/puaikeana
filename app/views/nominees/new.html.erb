@@ -1,7 +1,7 @@
 <%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
 
 <div class="nominees new">
-  <h2>Create Nominee</h2>
+  <h2>Nominate Nominee</h2>
 
   <%= form_for(:nominee, :url => {:action => 'create'}) do |f| %>
 
@@ -19,9 +19,6 @@
         <td><%= f.text_field(:email) %></td>
       </tr>
       <tr>
-        <th>Chapman ID</th>
-        <td><%= f.text_field(:chapman_id) %></td>
-      </tr>
       <tr>
         <th>President</th>
         <td><%= f.check_box(:president_candidate) %></td>
@@ -57,7 +54,7 @@
     </table>
 
     <div class="form-buttons">
-      <%= submit_tag("Create Nominee") %>
+      <%= submit_tag("Submit Nomination") %>
     </div>
 
   <% end %>

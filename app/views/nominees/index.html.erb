@@ -1,14 +1,12 @@
   <div class="nominees index">
     <h2>Nominees</h2>
 
-    <%= link_to("Add New Subject", {:action => 'new'}, :class => 'action new') %>
+    <%= link_to("Add New Nominee", {:action => 'new'}, :class => 'action new') %>
 
     <table class="listing" summary="Nominee list">
       <tr class="header">
         <th>First Name </th>
         <th>Last Name </th>
-        <th>Email </th>
-        <th>Chapman ID </th>
         <th>President </th>
         <th>Vice President </th>
         <th>Secretary </th>
@@ -23,8 +21,6 @@
       <tr>
         <td><%= nominee.first_name %></td>
         <td><%= nominee.last_name %></td>
-        <td><%= nominee.email %></td>
-        <td><%= nominee.chapman_id %></td>
         <td class="center"><%= nominee.president_candidate ? 'Yes' : 'No' %></td>
         <td class="center"><%= nominee.vp_candidate ? 'Yes' : 'No' %></td>
         <td class="center"><%= nominee.secretary_candidate ? 'Yes' : 'No' %></td>
@@ -35,7 +31,7 @@
         <td class="center"><%= nominee.community_candidate ? 'Yes' : 'No' %></td>
         <td class="actions">
           <%= link_to("Show", {:action => 'show' , :id => nominee.id},  :class => 'action show') %>
-          <%= link_to("Edit", '#', :class => 'action edit') %>
+          <%= link_to("Edit",{:action => 'edit' , :id => nominee.id}, :class => 'action edit') %>
           <%= link_to("Delete", '#', :class => 'action delete') %>
         </td>
       </tr>

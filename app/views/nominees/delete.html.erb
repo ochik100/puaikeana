@@ -1,2 +1,17 @@
-<h1>Nominees#delete</h1>
-<p>Find me in app/views/nominees/delete.html.erb</p>
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="nominees delete">
+  <h2>Delete Nominee</h2>
+
+  <%= form_for(:nominee, :url => {:action => 'destroy', :id => @nominee.id}) do |f| %>
+
+    <p>Are you sure you want to permanently withdraw this nominee?</p>
+
+    <p class="reference-name"><%= @nominee.first_name %></p>
+
+    <div class="form-buttons">
+      <%= submit_tag("Withdraw Nominee") %>
+    </div>
+
+  <% end %>
+</div>

@@ -1,6 +1,6 @@
 class NomineesController < ApplicationController
 
-   
+   layout "admin"
 
   def index
     @nominees = Nominee.sorted
@@ -28,9 +28,30 @@ class NomineesController < ApplicationController
   end
 
   def edit
+    @nominee = Nominee.find(params[:id])
+    @nominee_count = Nominee.count
   end
 
-  def delete
+  def update
+    # Find an existing object using form parameters
+    @nominee = Nominee.find(params[:id])
+    # Update the object
+    if @nominee.update_attributes(nominee_params)
+      # If update succeeds, redirect to the index action
+      redirect_to(:action => 'show', :id => @nominee.id)
+    else
+      # If update fails, redisplay the form so user can fix problems
+      render('edit')
+    end
+  end
+
+  def delete 
+   @nominee = Nominee.find(params[:id])
+  end
+
+  def destroy
+    nominee = Nominee.find(params[:id]).destroy
+    redirect_to(:action => 'index')
   end
 
   private

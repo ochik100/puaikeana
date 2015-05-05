@@ -5,9 +5,49 @@
 
   <table summary="Nominee detail view">
 
+    <tr>
+      <th>First Name</th>
+      <td><%= @nominee.first_name %></td>
+    </tr>
+    <tr>
+      <th>Last Name</th>
+      <td><%= @nominee.last_name %></td>
+    </tr>
   	<tr>
       <th>Email</th>
       <td><%= @nominee.email %></td>
+    </tr>
+    <tr>
+      <th>President</th>
+      <td><%= @nominee.president_candidate ? 'Yes' : 'No' %></td>
+    </tr>
+    <tr>
+      <th>Vice President</th>
+      <td><%= @nominee.vp_candidate ? 'Yes' : 'No' %></td>
+    </tr>
+    <tr>
+      <th>Secretary</th>
+      <td><%= @nominee.secretary_candidate ? 'Yes' : 'No' %></td>
+    </tr>
+    <tr>
+      <th>Treasurer</th>
+      <td><%= @nominee.treasurer_candidate ? 'Yes' : 'No' %></td>
+    </tr>
+    <tr>
+      <th>Marketing</th>
+      <td><%= @nominee.marketing_candidate ? 'Yes' : 'No' %></td>
+    </tr>
+    <tr>
+      <th>Lū'au Co-Chair</th>
+      <td><%= @nominee.luau_candidate ? 'Yes' : 'No' %></td>
+    </tr>
+    <tr>
+      <th>Fundraising</th>
+      <td><%= @nominee.fundraising_candidate ? 'Yes' : 'No' %></td>
+    </tr>
+    <tr>
+      <th>Community Service</th>
+      <td><%= @nominee.community_candidate ? 'Yes' : 'No' %></td>
     </tr>
     <tr>
       <th>Created</th>
