@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20150430015129) do
     t.boolean  "fundraising_candidate", limit: 1
     t.boolean  "community_candidate",   limit: 1
     t.boolean  "luau_candidate",        limit: 1
+    t.boolean  "cultural_candidate",    limit: 1
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
   end

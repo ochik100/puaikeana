@@ -12,6 +12,7 @@ class CreateNominees < ActiveRecord::Migration
       t.boolean "fundraising_candidate"
       t.boolean "community_candidate"
       t.boolean "luau_candidate"
+      t.boolean "cultural_candidate"
 
       t.timestamps null: false
     end

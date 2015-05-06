@@ -15,6 +15,7 @@
         <th>Lu'au Co-Chair </th>
         <th>Fundraising </th>
         <th>Community Service </th>
+        <th>Cultural Consultant </th>
         <th>Actions</th>
       </tr>
       <% @nominees.each do |nominee| %>
@@ -29,10 +30,11 @@
         <td class="center"><%= nominee.luau_candidate ? 'Yes' : 'No' %></td>
         <td class="center"><%= nominee.fundraising_candidate ? 'Yes' : 'No' %></td>
         <td class="center"><%= nominee.community_candidate ? 'Yes' : 'No' %></td>
+        <td class="center"><%= nominee.cultural_candidate ? 'Yes' : 'No' %></td>
         <td class="actions">
           <%= link_to("Show", {:action => 'show' , :id => nominee.id},  :class => 'action show') %>
           <%= link_to("Edit",{:action => 'edit' , :id => nominee.id}, :class => 'action edit') %>
-          <%= link_to("Delete", '#', :class => 'action delete') %>
+          <%= link_to("Delete", {:action => 'delete', :id => nominee.id}, :class => 'action delete') %>
         </td>
       </tr>
       <% end %>

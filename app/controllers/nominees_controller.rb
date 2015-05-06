@@ -25,6 +25,11 @@ class NomineesController < ApplicationController
       # If save fails, redisplay the form so user can fix problems
       render('new')
     end
+
+    if @nominee.president_candidate
+      @president = President.new({:nominee_id => @nominee.id})
+      @president.save
+    end 
   end
 
   def edit
@@ -46,11 +51,13 @@ class NomineesController < ApplicationController
   end
 
   def delete 
-   @nominee = Nominee.find(params[:id])
+    @nominee = Nominee.find(params[:id])
+    #@president = President.find(params[:id])
   end
 
   def destroy
     nominee = Nominee.find(params[:id]).destroy
+    #president = President.find({:nominee_id => @nominee.id}).destroy
     redirect_to(:action => 'index')
   end
 
@@ -60,6 +67,13 @@ class NomineesController < ApplicationController
       # same as using "params[:subject]", except that it:
       # - raises an error if :subject is not present
       # - allows listed attributes to be mass-assigned
-      params.require(:nominee).permit(:first_name, :last_name, :email, :chapman_id, :president_candidate, :vp_candidate, :secretary_candidate, :treasurer_candidate, :marketing_candidate, :luau_candidate, :fundraising_candidate, :community_candidate)
+      params.require(:nominee).permit(:first_name, :last_name, :email, :chapman_id, :president_candidate, :vp_candidate, :secretary_candidate, :treasurer_candidate, :marketing_candidate, :luau_candidate, :fundraising_candidate, :community_candidate, :cultural_candidate)
+    end
+
+    def president_params
+      # same as using "params[:subject]", except that it:
+      # - raises an error if :subject is not present
+      # - allows listed attributes to be mass-assigned
+      params.require(:president).permit(:nominee_id)
     end
 end
