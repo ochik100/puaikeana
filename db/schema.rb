@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150430015129) do
+ActiveRecord::Schema.define(version: 20150507014801) do
 
   create_table "community_service_chairs", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -73,4 +73,5 @@ ActiveRecord::Schema.define(version: 20150430015129) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "presidents", "nominees"
 end

@@ -1,3 +1,5 @@
+  <%= link_to("<< Back to List of Nominees", {:controller => 'nominees', :action => 'index'}, :class => 'back-link') %>
+
   <div class="presidents index">
     <h2>Presidents</h2>
 
@@ -9,11 +11,12 @@
 
 
       <% @presidents.each do |president| %>
+      
 		      <tr>
-		        <td><%= president.nominee_id %></td>
-		        <td><%= Nominee.joins(:presidents).pluck(:first_name) %></td>
-		        <td><%= Nominee.joins(:presidents).pluck(:last_name) %></td>
+		        <td><%= president.first_name %></td>
+		        <td><%= president.last_name %></td>
 		      </tr>
+		      
       <% end %>
     </table>
   </div> 

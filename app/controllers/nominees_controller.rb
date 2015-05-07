@@ -35,15 +35,22 @@ class NomineesController < ApplicationController
   def edit
     @nominee = Nominee.find(params[:id])
     @nominee_count = Nominee.count
+
+    if @nominee.president_candidate
+      @president = President.find_by(:nominee_id => params[:id])
+    end
   end
 
   def update
     # Find an existing object using form parameters
     @nominee = Nominee.find(params[:id])
+    
+
     # Update the object
     if @nominee.update_attributes(nominee_params)
       # If update succeeds, redirect to the index action
       redirect_to(:action => 'show', :id => @nominee.id)
+      #end
     else
       # If update fails, redisplay the form so user can fix problems
       render('edit')
@@ -52,12 +59,16 @@ class NomineesController < ApplicationController
 
   def delete 
     @nominee = Nominee.find(params[:id])
-    #@president = President.find(params[:id])
+
+    if @nominee.president_candidate
+      @president = President.find_by(:nominee_id => params[:id])
+    end
   end
 
   def destroy
+    president = President.find_by(:nominee_id => params[:id]).destroy
     nominee = Nominee.find(params[:id]).destroy
-    #president = President.find({:nominee_id => @nominee.id}).destroy
+    
     redirect_to(:action => 'index')
   end
 
