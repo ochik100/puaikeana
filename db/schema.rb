@@ -24,14 +24,20 @@ ActiveRecord::Schema.define(version: 20150507014801) do
   end
 
   create_table "luau_chairs", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "nominee_id", limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
+  add_index "luau_chairs", ["nominee_id"], name: "index_luau_chairs_on_nominee_id", using: :btree
+
   create_table "marketing_chairs", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "nominee_id", limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
+
+  add_index "marketing_chairs", ["nominee_id"], name: "index_marketing_chairs_on_nominee_id", using: :btree
 
   create_table "nominees", force: :cascade do |t|
     t.string   "first_name",            limit: 255
@@ -82,6 +88,8 @@ ActiveRecord::Schema.define(version: 20150507014801) do
 
   add_index "vice_presidents", ["nominee_id"], name: "index_vice_presidents_on_nominee_id", using: :btree
 
+  add_foreign_key "luau_chairs", "nominees"
+  add_foreign_key "marketing_chairs", "nominees"
   add_foreign_key "presidents", "nominees"
   add_foreign_key "secretaries", "nominees"
   add_foreign_key "treasurers", "nominees"

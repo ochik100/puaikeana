@@ -1,0 +1,2 @@
+module MarketingChairsHelper
+end

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'luau_chairs/index'
+
+  get 'marketing_chairs/index'
+
   get 'treasurers/index'
 
   get 'secretaries/index'

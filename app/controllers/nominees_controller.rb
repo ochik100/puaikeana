@@ -40,6 +40,14 @@ class NomineesController < ApplicationController
       @treasurer = Treasurer.new({:nominee_id => @nominee.id})
       @treasurer.save
     end 
+    if @nominee.marketing_candidate
+      @marketing_chair = MarketingChair.new({:nominee_id => @nominee.id})
+      @marketing_chair.save
+    end 
+    if @nominee.luau_candidate
+      @luau_chair = LuauChair.new({:nominee_id => @nominee.id})
+      @luau_chair.save
+    end 
 
 
 
@@ -59,6 +67,12 @@ class NomineesController < ApplicationController
     end
     if @nominee.treasurer_candidate
       @treasurer = Treasurer.find_by(:nominee_id => params[:id])
+    end
+    if @nominee.marketing_candidate
+      @marketing_chair = MarketingChair.find_by(:nominee_id => params[:id])
+    end
+    if @nominee.luau_candidate
+      @luau_chair = LuauChair.find_by(:nominee_id => params[:id])
     end
   end
 
@@ -91,6 +105,12 @@ class NomineesController < ApplicationController
     if @nominee.treasurer_candidate
       @treasurer = Treasurer.find_by(:nominee_id => params[:id])
     end
+    if @nominee.marketing_candidate
+      @marketing_chair = MarketingChair.find_by(:nominee_id => params[:id])
+    end
+    if @nominee.luau_candidate
+      @luau_chair = LuauChair.find_by(:nominee_id => params[:id])
+    end
   end
 
   def destroy
@@ -106,6 +126,12 @@ class NomineesController < ApplicationController
       end
       if @nominee.treasurer_candidate
         @treasurer = Treasurer.find_by(:nominee_id => params[:id]).destroy
+      end
+      if @nominee.marketing_candidate
+        @marketing_chair = MarketingChair.find_by(:nominee_id => params[:id]).destroy
+      end
+      if @nominee.luau_candidate
+        @luau_chair = LuauChair.find_by(:nominee_id => params[:id]).destroy
       end
       nominee = Nominee.find(params[:id]).destroy
       redirect_to(:action => 'index')

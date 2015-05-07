@@ -4,6 +4,8 @@ class Nominee < ActiveRecord::Base
 	has_many :vice_presidents
 	has_many :secretaries
 	has_many :treasurers
+	has_many :marketing_chairs
+	has_many :luau_chairs
 
 	scope :sorted, lambda { order("nominees.last_name ASC")}
 	scope :search, lambda { |query| where(["name LIKE ?", "%#{query}%"])}
