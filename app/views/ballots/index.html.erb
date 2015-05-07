@@ -1,0 +1,104 @@
+  <%= link_to("<< Back to List of Nominees", {:controller => 'nominees', :action => 'index'}, :class => 'back-link') %>
+  <%= link_to("Vote Now!", {:action => 'vote'}, :class => 'action vote') %>
+
+  <div class="ballots index">
+    <h2>Ballot Page</h2>
+
+      <tr class="header">
+        <h3>President Candidates</h3>
+      </tr>
+
+
+      <% @presidents.each do |president| %>
+      
+		      <tr>
+		        <td><%= president.first_name %></td>
+		        <td><%= president.last_name %></td>
+		        <p></p>
+		      </tr>
+		      
+      <% end %>
+
+      <tr class="header">
+        <h3>Vice President Candidates</h3>
+      </tr>
+
+      <% @vice_presidents.each do |vice_president| %>
+      
+		      <tr>
+		        <td><%= vice_president.first_name %></td>
+		        <td><%= vice_president.last_name %></td>
+		        <p></p>
+		      </tr>
+		      
+      <% end %>
+
+      <tr class="header">
+        <h3>Lu'au Co-Chair Candidates</h3>
+      </tr>
+
+      <% @luau_chairs.each do |luau_chair| %>
+      
+		      <tr>
+		        <td><%= luau_chair.first_name %></td>
+		        <td><%= luau_chair.last_name %></td>
+		        <p></p>
+		      </tr>
+		      
+      <% end %>
+
+      <tr class="header">
+        <h3>Secretary Candidates</h3>
+      </tr>
+
+      <% @secretaries.each do |secretary| %>
+      
+		      <tr>
+		        <td><%= secretary.first_name %></td>
+		        <td><%= secretary.last_name %></td>
+		        <p></p>
+		      </tr>
+		      
+      <% end %>
+
+      <tr class="header">
+        <h3>Treasurer Candidates</h3>
+      </tr>
+
+      <% @treasurers.each do |treasurer| %>
+      
+		      <tr>
+		        <td><%= treasurer.first_name %></td>
+		        <td><%= treasurer.last_name %></td>
+		        <p></p>
+		      </tr>
+		      
+      <% end %>
+
+      <tr class="header">
+        <h3>Marketing Chair Candidates</h3>
+      </tr>
+
+      <% @marketing_chairs.each do |marketing_chair| %>
+      
+		      <tr>
+		        <td><%= marketing_chair.first_name %></td>
+		        <td><%= marketing_chair.last_name %></td>
+		        <p></p>
+		      </tr>
+		      
+      <% end %>
+
+      <tr class="header">
+        <h3>Community Service Chair Candidates</h3>
+      </tr>
+
+      <tr class="header">
+        <h3>Fundraising Chair Candidates</h3>
+      </tr>
+
+      <tr class="header">
+        <h3>Cultural Consultant Candidates</h3>
+      </tr>
+
+  </div> 

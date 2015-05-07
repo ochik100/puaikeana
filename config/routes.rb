@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'ballots/index'
+
+  get 'ballots/vote'
+
+  get 'ballot/index'
+
+  get 'ballot/vote'
+
   get 'luau_chairs/index'
 
   get 'marketing_chairs/index'
