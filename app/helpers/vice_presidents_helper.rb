@@ -1,0 +1,2 @@
+module VicePresidentsHelper
+end

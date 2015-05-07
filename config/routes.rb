@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'treasurers/index'
+
+  get 'secretaries/index'
+
+  get 'vice_presidents/index'
+
   get 'presidents/index'
 
   match ':controller(/:action(/:id))', :via => [:get, :post]

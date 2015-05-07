@@ -59,19 +59,31 @@ ActiveRecord::Schema.define(version: 20150507014801) do
   add_index "presidents", ["nominee_id"], name: "index_presidents_on_nominee_id", using: :btree
 
   create_table "secretaries", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "nominee_id", limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
+
+  add_index "secretaries", ["nominee_id"], name: "index_secretaries_on_nominee_id", using: :btree
 
   create_table "treasurers", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "nominee_id", limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
+
+  add_index "treasurers", ["nominee_id"], name: "index_treasurers_on_nominee_id", using: :btree
 
   create_table "vice_presidents", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "nominee_id", limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
+  add_index "vice_presidents", ["nominee_id"], name: "index_vice_presidents_on_nominee_id", using: :btree
+
   add_foreign_key "presidents", "nominees"
+  add_foreign_key "secretaries", "nominees"
+  add_foreign_key "treasurers", "nominees"
+  add_foreign_key "vice_presidents", "nominees"
 end
