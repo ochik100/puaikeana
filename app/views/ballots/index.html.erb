@@ -93,12 +93,42 @@
         <h3>Community Service Chair Candidates</h3>
       </tr>
 
+      <% @community_service_chairs.each do |community_service_chair| %>
+      
+		      <tr>
+		        <td><%= community_service_chair.first_name %></td>
+		        <td><%= community_service_chair.last_name %></td>
+		        <p></p>
+		      </tr>
+		      
+      <% end %>
+
       <tr class="header">
         <h3>Fundraising Chair Candidates</h3>
       </tr>
 
+      <% @fundraising_chairs.each do |fundraising_chair| %>
+      
+		      <tr>
+		        <td><%= fundraising_chair.first_name %></td>
+		        <td><%= fundraising_chair.last_name %></td>
+		        <p></p>
+		      </tr>
+		      
+      <% end %>
+
       <tr class="header">
         <h3>Cultural Consultant Candidates</h3>
       </tr>
+
+      <% @cultural_consultants.each do |cultural_consultant| %>
+      
+		      <tr>
+		        <td><%= cultural_consultant.first_name %></td>
+		        <td><%= cultural_consultant.last_name %></td>
+		        <p></p>
+		      </tr>
+		      
+      <% end %>
 
   </div> 

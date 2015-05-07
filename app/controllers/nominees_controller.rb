@@ -48,6 +48,18 @@ class NomineesController < ApplicationController
       @luau_chair = LuauChair.new({:nominee_id => @nominee.id})
       @luau_chair.save
     end 
+    if @nominee.fundraising_candidate
+      @fundraising_chair = FundraisingChair.new({:nominee_id => @nominee.id})
+      @fundraising_chair.save
+    end 
+    if @nominee.community_candidate
+      @community_service_chair = CommunityServiceChair.new({:nominee_id => @nominee.id})
+      @community_service_chair.save
+    end 
+    if @nominee.cultural_candidate
+      @cultural_consultants = CulturalConsultant.new({:nominee_id => @nominee.id})
+      @cultural_consultants.save
+    end 
 
 
 
@@ -73,6 +85,15 @@ class NomineesController < ApplicationController
     end
     if @nominee.luau_candidate
       @luau_chair = LuauChair.find_by(:nominee_id => params[:id])
+    end
+    if @nominee.fundraising_candidate
+      @fundraising_chair = FundraisingChair.find_by(:nominee_id => params[:id])
+    end
+    if @nominee.community_candidate
+      @community_service_chair = CommunityServiceChair.find_by(:nominee_id => params[:id])
+    end
+    if @nominee.cultural_candidate
+      @cultural_consultant = CulturalConsultant.find_by(:nominee_id => params[:id])
     end
   end
 
@@ -111,6 +132,15 @@ class NomineesController < ApplicationController
     if @nominee.luau_candidate
       @luau_chair = LuauChair.find_by(:nominee_id => params[:id])
     end
+    if @nominee.fundraising_candidate
+      @fundraising_chair = FundraisingChair.find_by(:nominee_id => params[:id])
+    end
+    if @nominee.community_candidate
+      @community_service_chair = CommunityServiceChair.find_by(:nominee_id => params[:id])
+    end
+    if @nominee.cultural_candidate
+      @cultural_consultant = CulturalConsultant.find_by(:nominee_id => params[:id])
+    end
   end
 
   def destroy
@@ -132,6 +162,15 @@ class NomineesController < ApplicationController
       end
       if @nominee.luau_candidate
         @luau_chair = LuauChair.find_by(:nominee_id => params[:id]).destroy
+      end
+      if @nominee.fundraising_candidate
+        @fundraising_chair = FundraisingChair.find_by(:nominee_id => params[:id]).destroy
+      end
+      if @nominee.community_candidate
+        @community_service_chair = CommunityServiceChair.find_by(:nominee_id => params[:id]).destroy
+      end
+      if @nominee.cultural_candidate
+        @cultural_consultant = CulturalConsultant.find_by(:nominee_id => params[:id]).destroy
       end
       nominee = Nominee.find(params[:id]).destroy
       redirect_to(:action => 'index')

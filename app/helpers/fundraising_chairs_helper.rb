@@ -1,0 +1,2 @@
+module FundraisingChairsHelper
+end

@@ -11,17 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150507014801) do
+ActiveRecord::Schema.define(version: 20150507095700) do
 
   create_table "community_service_chairs", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "nominee_id", limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
-  create_table "fundraising_chairs", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  add_index "community_service_chairs", ["nominee_id"], name: "index_community_service_chairs_on_nominee_id", using: :btree
+
+  create_table "cultural_consultants", force: :cascade do |t|
+    t.integer  "nominee_id", limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
+
+  add_index "cultural_consultants", ["nominee_id"], name: "index_cultural_consultants_on_nominee_id", using: :btree
+
+  create_table "fundraising_chairs", force: :cascade do |t|
+    t.integer  "nominee_id", limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "fundraising_chairs", ["nominee_id"], name: "index_fundraising_chairs_on_nominee_id", using: :btree
 
   create_table "luau_chairs", force: :cascade do |t|
     t.integer  "nominee_id", limit: 4
@@ -88,6 +102,9 @@ ActiveRecord::Schema.define(version: 20150507014801) do
 
   add_index "vice_presidents", ["nominee_id"], name: "index_vice_presidents_on_nominee_id", using: :btree
 
+  add_foreign_key "community_service_chairs", "nominees"
+  add_foreign_key "cultural_consultants", "nominees"
+  add_foreign_key "fundraising_chairs", "nominees"
   add_foreign_key "luau_chairs", "nominees"
   add_foreign_key "marketing_chairs", "nominees"
   add_foreign_key "presidents", "nominees"

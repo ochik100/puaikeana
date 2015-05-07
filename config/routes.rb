@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'cultural_consultants/index'
+
+  get 'community_service_chairs/index'
+
+  get 'fundraising_chairs/index'
+
   get 'ballots/index'
 
   get 'ballots/vote'
